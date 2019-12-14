@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/0c0ab59ebe.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Original Sunglasses</title>
+</head>
+<body>
+    <header>
+        <div id="logo-container">
+            <img src="images/Sunglasses-512.png" id="logo">
+            <h1>OS</h1>
+        </div>
+        <nav id="topnav">
+            <a href="#section-b">Features</a>
+            <a href="#vid-cont">How It Works</a>
+            <a href="#section-c">Pricing</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <!-- Responsive bar icon-->
+                <i class="fa fa-bars"></i> 
+            </a>
+        </nav>
+    </header>
+    <main id="main-container">
+        <h2 id="title">Handcrafted, home-made masterpieces</h2>
+
+        <section id="section-a">
+            <form>
+                <input type="email" name="" id="email" placeholder="Enter your email address"><br>
+                <input type="button" id="start-btn" value="GET STARTED">
+            </form>
+        </section>
+
+        <section id="section-b">
+            <table>
+                <tr>
+                    <td class="icon">
+                        <i class="fas fa-fire fa-3x"></i>
+                    </td>
+                    <td class="text">
+                        <h1>Premium Materials</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut incidunt, dolorem accusantium adipisci pariatur doloribus!</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon">
+                        <i class="fas fa-truck fa-3x"></i>
+                    </td>
+                    <td class="text">
+                        <h1>Fast Shipping</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo saepe, itaque eligendi rerum quibusdam ea voluptatum! Optio.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="icon">
+                        <i class="fas fa-battery-full fa-3x"></i>
+                    </td>
+                    <td class="text">
+                        <h1>Quality Assurance</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dignissimos repudiandae inventore vero.</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <div id="vid-cont">
+            <video width="500" height="350" controls></video>
+        </div>
+        
+
+        <section id="section-c">
+                <div class="box">
+                    <h3 class="top">Option 1</h3>
+                    <div class="select-box">
+                        <h2>$50</h2>
+                        <p>Lorem ipsum</p>
+                        <p>Lorem ipsum</p>
+                        <p>Lorem ipsum dolor</p>
+                        <p>Lorem ipsum</p>
+                        <button class="select-btn">SELECT</button>
+                    </div>
+                    
+                </div>
+                <div class="box">
+                    <h3 class="top">Option 2</h3>
+                    <div class="select-box">
+                        <h2>$75</h2>
+                        <p>Lorem ipsum</p>
+                        <p>Lorem ipsum</p>
+                        <p>Lorem ipsum dolor</p>
+                        <p>Lorem ipsum</p>
+                        <button class="select-btn">SELECT</button>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="top">Option 3</h3>
+                    <div class="select-box">
+                        <h2>$100</h2>
+                        <p>Lorem ipsum</p>
+                        <p>Lorem ipsum</p>
+                        <p>Lorem ipsum dolor</p>
+                        <p>Lorem ipsum</p>
+                        <button class="select-btn">SELECT</button>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+
+    <script> /* Edit with actual id and class names*/
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+    </script>
+</body>
+</html>
