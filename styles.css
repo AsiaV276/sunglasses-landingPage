@@ -36,6 +36,8 @@ header {
 }
 
 #topnav {
+    display: flex;
+    align-items: center;
     padding-right: 20px;
 }
 
@@ -56,7 +58,9 @@ header {
 }
 
 @media only screen and (max-width: 600px) {
-    #topnav a:not(:first-child) {display: none;}
+    #topnav a {
+        display: none;
+    }
     #topnav a.icon {
         float: right;
         display: block;
@@ -104,7 +108,7 @@ main {
 }
 
 #start-btn {
-    background-color: gold;
+    background-color: orange;
     border: none;
     color: black;
     padding: 10px 20px;
@@ -116,7 +120,7 @@ main {
 }
 
 #start-btn:hover {
-    background-color: goldenrod;
+    background-color: darkorange;
 }
 
 #section-a {
@@ -235,7 +239,7 @@ video {
 }
 
 .select-btn {
-    background-color: gold;
+    background-color: orange;
     border: none;
     color: black;
     padding: 10px 20px;
@@ -245,7 +249,7 @@ video {
 }
 
 .select-btn:hover {
-    background-color: goldenrod;
+    background-color: darkorange;
 }
 
 footer {
