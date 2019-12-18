@@ -11,7 +11,7 @@ header {
 .topnav {
     overflow: hidden;
     height: auto;
-    background: #eeeeee;
+    background: #eeeeee; /*rgba(238, 238, 238, 0.0)*/
     position: fixed;
     width: 100%;
     top: 0;
@@ -83,6 +83,7 @@ main {
 @media only screen and (max-width: 650px) {
     .topnav.responsive {
         position: fixed;
+        background: #dddddd;
     }
 
     .topnav.repsonsive a.icon {
