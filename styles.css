@@ -60,7 +60,7 @@ main {
     text-align: center;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 650px) {
     #logo-container h1 {
         display: none;
     }
@@ -80,7 +80,7 @@ main {
 
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 650px) {
     .topnav.responsive {
         position: fixed;
     }
@@ -140,14 +140,6 @@ main {
     display: inline-block;
 }
 
-/*#get-started {
-    background: coral;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-}*/
-
 #section-b {
     display: flex;
     flex-direction: column;
@@ -193,8 +185,6 @@ video {
     color: black;
     text-align: center;
     width: 100%;
-    /*align-content: space-around;
-    justify-content: center;*/
 }
 
 #section-c .box {
