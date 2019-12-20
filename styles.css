@@ -121,7 +121,7 @@ main {
 #title {
     font-family: acme;
     text-align: center;
-    font-size: xx-large;
+    font-size: 40px;
     text-shadow: 1px 1px 10px #9b9b9b;
 }
 
@@ -158,11 +158,14 @@ main {
     display: flex;
     flex-direction: column;
     padding: 50px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 @media only screen and (max-width: 650px) {
     #section-b {
         padding: 20px;
+        padding-bottom: 0;
     }
 }
 
@@ -188,19 +191,25 @@ main {
     padding: 15px;
 }
 
+@media only screen and (max-width: 650px) {
+    #how-works {
+        height: 50px;
+    }
+}
+
+
 #vid-cont {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 50px;
-    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .heading {
     font-family: acme;
-    color: darkorange;
-    text-align: left;
-    float: left;
+    color: darkorange; 
+    font-size: 35px;
 }
 
 video {
@@ -215,8 +224,9 @@ video {
     }
 }
 
-.price-cont {
-    display: block;
+#price {
+    width: 100%;
+    height: 50px;
 }
 
 #section-c {
@@ -232,6 +242,7 @@ video {
     width: 100vw;
     height: auto;
     margin: 15px;
+    margin-top: 0;
 }
 
 @media only screen and (max-width: 650px) {
