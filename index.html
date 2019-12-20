@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/0c0ab59ebe.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#menu-icon').click(function(event) {
+                $('#icon-id').toggleClass('fa-close');
+                $('#menu').slideToggle();
+                
+            });
+
+            $()
+
+
+        });
+    </script>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Original Sunglasses</title>
@@ -19,20 +34,27 @@
                 <img src="images/Sunglasses-512.png" id="logo">
                 <!--<h1>OS</h1>-->
             </a>
-            <a href="javascript:void(0);" class="icon" > <!-- Responsive bar icon-->
-                <i onclick="myFunction(); toggleIcon(this)" class="fa fa-bars fa-2x"></i> 
+            <a href="javascript:void(0);" class="icon" id="menu-icon"> <!-- Responsive bar icon-->
+                <i class="fa fa-bars fa-2x" id="icon-id"></i> 
             </a>
             
-            <a href="#section-c">Pricing</a>
-            <a href="#vid-cont">How It Works</a>
-            <a href="#section-b">Features</a>
-            <a href="#main-container">Get Started</a>
+            <a href="#section-c" >Pricing</a>
+            <a href="#vid-cont" >How It Works</a>
+            <a href="#section-b" >Features</a>
+            <a href="#main-container" >Get Started</a>
             
         </nav>
+        <div id="menu">
+            <a href="#main-container" class="links">Get Started</a>
+            <a href="#section-b" class="links">Features</a>
+            <a href="#vid-cont" class="links">How It Works</a>
+            <a href="#section-c" class="links">Pricing</a>
+        </div>
+        
     </header>
 
     <main id="main-container">
-        <h2 id="title">Handcrafted, home-made masterpieces</h2>
+        <h2 id="title">Original Sunglasses</h2>
 
         <section id="section-a">
             <form>
@@ -74,64 +96,53 @@
         </section>
 
         <div id="vid-cont">
+            <h1 class="heading">How It Works</h1>
             <video width="500" height="350" controls></video>
         </div>
-        
 
+        <div class="price-cont">    <!-- Work with more-->
+            <h1 class="heading">Pricing</h1>
+        </div>
+        
         <section id="section-c">
-                <div class="box">
-                    <h3 class="top">Option 1</h3>
-                    <div class="select-box">
-                        <h2>$50</h2>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum dolor</p>
-                        <p>Lorem ipsum</p>
-                        <button class="select-btn">SELECT</button>
-                    </div>
-                    
+            
+            <div class="box">
+                <h3 class="top">Option 1</h3>
+                <div class="select-box">
+                    <h2>$50</h2>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum dolor</p>
+                    <p>Lorem ipsum</p>
+                    <button class="select-btn">SELECT</button>
                 </div>
-                <div class="box">
-                    <h3 class="top">Option 2</h3>
-                    <div class="select-box">
-                        <h2>$75</h2>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum dolor</p>
-                        <p>Lorem ipsum</p>
-                        <button class="select-btn">SELECT</button>
-                    </div>
+                
+            </div>
+            <div class="box">
+                <h3 class="top">Option 2</h3>
+                <div class="select-box">
+                    <h2>$75</h2>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum dolor</p>
+                    <p>Lorem ipsum</p>
+                    <button class="select-btn">SELECT</button>
                 </div>
-                <div class="box">
-                    <h3 class="top">Option 3</h3>
-                    <div class="select-box">
-                        <h2>$100</h2>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum dolor</p>
-                        <p>Lorem ipsum</p>
-                        <button class="select-btn">SELECT</button>
-                    </div>
+            </div>
+            <div class="box">
+                <h3 class="top">Option 3</h3>
+                <div class="select-box">
+                    <h2>$100</h2>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum</p>
+                    <p>Lorem ipsum dolor</p>
+                    <p>Lorem ipsum</p>
+                    <button class="select-btn">SELECT</button>
                 </div>
+            </div>
         </section>
     </main>
-    <footer>
+    <footer></footer>
 
-    </footer>
-
-    <script> /* Edit with actual id and class names*/
-        function myFunction() {
-            var x = document.getElementById("myTopNav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
-        }
-
-        function toggleIcon(x) {
-            x.classList.toggle("fa-times");
-        }
-    </script>
 </body>
 </html>

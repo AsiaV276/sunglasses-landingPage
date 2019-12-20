@@ -15,7 +15,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 .topnav a{
@@ -78,28 +78,38 @@ main {
         display: block;
     }
 
-}
-
-@media only screen and (max-width: 650px) {
-    .topnav.responsive {
+    #menu {
+        padding-top: 67px;
+        background-color: rgb(221, 221, 221);
+        width: 100%;
         position: fixed;
-        background: #dddddd;
-    }
-
-    .topnav.repsonsive a.icon {
-        position: absolute;
         right: 0;
-        top: 0;
+        display: none;
+        z-index: 1;
+        
     }
 
-    .topnav.responsive a {
-        float: none;
+    #menu a {
+        float: right;
         display: block;
-        text-align: right;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        color: cadetblue;
+        padding: 12px;
+        font-weight: bold;
+        font-size: large;
+        margin: auto;
     }
 
-}
+    #menu a:hover {
+        color: orange;
+    }
 
+    #menu a:active {
+        color: darkorange;
+    }
+}
 
 #main-container {
     display: flex;
@@ -109,7 +119,10 @@ main {
 }
 
 #title {
+    font-family: acme;
     text-align: center;
+    font-size: xx-large;
+    text-shadow: 1px 1px 10px #9b9b9b;
 }
 
 #email {
@@ -147,6 +160,12 @@ main {
     padding: 50px;
 }
 
+@media only screen and (max-width: 650px) {
+    #section-b {
+        padding: 20px;
+    }
+}
+
 #section-b i {
     color: cadetblue;
 }
@@ -165,20 +184,39 @@ main {
 }
 
 
-
 .b-item p {
     padding: 15px;
 }
 
 #vid-cont {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 50px;
+    padding-top: 0;
+}
+
+.heading {
+    font-family: acme;
+    color: darkorange;
+    text-align: left;
+    float: left;
 }
 
 video {
     max-width: 100%;
     height: auto;
+    z-index: 0;
+}
+
+@media only screen and (max-width: 650px) {
+    #vid-cont {
+        padding: 10px;
+    }
+}
+
+.price-cont {
+    display: block;
 }
 
 #section-c {
