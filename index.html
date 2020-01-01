@@ -8,13 +8,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#menu-icon').click(function(event) {
-                $('#icon-id').toggleClass('fa-close');
-                $('#menu').slideToggle();
+            $('#menu-icon').click(function(event) { 
+                $('#icon-id').toggleClass('fa-close'); // clicking on menu bars icon toggles to the close icon
+                $('#menu').slideToggle();           // clicking on menu bars slides open menu
                 
             });
-
-            $()
+        
+            $('#main-container, #footer').click(function(event) {
+                $('#menu').slideUp();               // clicking on page or footer slide closes menu
+                if($('#menu').is(':visible')) {     //  and the icon goes back to menu bars
+                    $('#icon-id').removeClass('fa-close');
+                }
+                
+            });
 
 
         });
@@ -143,7 +149,7 @@
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer id="footer"></footer>
 
 </body>
 </html>
