@@ -27,7 +27,8 @@
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/shop.css">
     <title>Original Sunglasses</title>
 </head>
 <body>
@@ -45,11 +46,11 @@
             <a href="#section-c" >Pricing</a>
             <a href="#vid-cont" >How It Works</a>
             <a href="#section-b" >Features</a>
-            <a href="#main-container" >Get Started</a>
+            <a href="/shop.html" >Shop</a>
             
         </nav>
         <div id="menu">
-            <a href="#main-container" class="links">Get Started</a>
+            <a href="/shop.html" class="links">Shop</a>
             <a href="#start-btn" class="links">Features</a>
             <a href="#how-works" class="links">How It Works</a>
             <a href="#price" class="links">Pricing</a>
@@ -61,11 +62,25 @@
         <h1 id="title">Original Sunglasses</h1>
 
         <section id="section-a">
-            <form>
-                <input type="email" name="" id="email" placeholder="Enter your email address" autofocus required><br>
+            <form onsubmit="event.preventDefault(); openModal()" id="email-form"> <!-- action="/shop.html" -->
+                <div id="name">
+                    <input type="text" name="" id="first" placeholder="First Name"autofocus required>
+                    <input type="text" name="" id="last" placeholder="Last Name" required>
+                </div>
+                <input type="email" name="" id="email" placeholder="Enter your email address" required><br>
                 <input type="submit" id="start-btn" value="GET STARTED">
             </form>
         </section>
+
+        <div id="welcome-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="success-msg">Success!</h2>
+                <h2>Welcome to Original Sunglasses,</h2>
+                <h2 id="name-place"></h2>
+                <a href="/shop.html"><button id="shop-btn">Start Shopping</button></a>
+            </div>
+        </div>
 
         <section id="section-b">
             <table>
@@ -149,5 +164,6 @@
     </main>
     <footer id="footer"></footer>
 
+    <script src="main.js"></script>
 </body>
 </html>

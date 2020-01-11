@@ -31,6 +31,7 @@ header {
 
 .topnav a:hover {
     color: orange;
+    border-bottom: 1px solid orange;
 }
 
 .topnav .icon {
@@ -123,6 +124,19 @@ main {
     text-align: center;
     font-size: 40px;
     text-shadow: 1px 1px 10px #9b9b9b;
+}
+
+#name {
+    display: flex;
+    flex-direction: row;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+#first, #last {
+    font-size: large;
+    width: 143px;
+    margin-right: 10px;
 }
 
 #email {
