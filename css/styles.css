@@ -15,7 +15,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 2;
+    z-index: 5;
 }
 
 .topnav a{
@@ -31,6 +31,9 @@ header {
 
 .topnav a:hover {
     color: orange;
+}
+
+.links:hover {
     border-bottom: 1px solid orange;
 }
 
@@ -231,6 +234,7 @@ main {
 
     #shop-btn:hover {
         background-color: darkorange;
+        cursor: pointer;
     }
 
 

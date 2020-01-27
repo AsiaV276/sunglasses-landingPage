@@ -31,7 +31,7 @@
 </head>
 <body>
     <header>
-        
+        <!--  Netlify www.originalsunglasses.page $12.99 for first year and $14.99 second year-->
         <nav class="topnav" id="myTopNav">
             <a href="/index.html" id="logo-container">
                 <img src="images/Sunglasses-512.png" id="logo">
@@ -40,19 +40,18 @@
                 <i class="fa fa-bars fa-2x" id="icon-id"></i> 
             </a>
             
-            <a href="#section-c" id="cart-container">
+            <div id="cart-container">
                 <div id="cart-btn">
                     <span class="nav-icon">
                         <i class="fas fa-shopping-cart fa-2x"></i>
                     </span>
                     <div id="num-cart-items">0</div>
                 </div>
-            </a>
+            </div>
         </nav>
         <div id="menu">
-            <a href="#" class="links">Men</a>
-            <a href="#" class="links">Women</a>
-            <a href="#" class="links">My Cart</a>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
             
         </div>
     </header>
@@ -64,44 +63,105 @@
         <div id="a-container">
             <h1>Shop</h1>
             <div class="mw-container">
-                <a href="#" class="mw-box"><div>
-                    <h1>MEN</h1>
-                </div></a>
-                <a href="#" class="mw-box"><div>
-                    <h1>WOMEN</h1>
-                </div></a>
+                <a href="#" >
+                    <div class="mw-box">
+                        <h1 class="mw-title">MEN</h1>
+                    </div>
+                </a>
+                <a href="#" >
+                    <div class="mw-box">
+                        <h1 class="mw-title">WOMEN</h1>
+                    </div>
+                </a>
             </div>
         </div>
 
         <!-- Add to Cart on hover 38:22 on video JavaScript Projects - Shopping Cart -->
         <div class="item-container">
+            
             <div class="item">
-                <img src="/images/sunglasses10.jpg" alt="">
-                <h4>Price: $75</h4>
+                <img src="https://i.imgur.com/7MO1Zbu.jpg" class="imgd"> <!-- https://i.imgur.com/7MO1Zbu.jpg -->
+                <div class="price-box">
+                    <h4 class="item-name">Green & Gold</h4>
+                    <h4 class="item-price">$65.00</h4>
+                    <input type="number" class="quantity-box" value="1" min="1" max="10">
+                </div>
+                <div class="add-cart-btn"><span>Add to Cart</span></div>
             </div>
+  
             <div class="item">
-                <img src="/images/sunglasses8.jpg" alt="">
-                <h4>Price: $100</h4>
+                <img src="https://i.imgur.com/IDnRq95.jpg" class="imgd" alt="">
+                <div class="price-box">
+                    <h4 class="item-name">Sand</h4>
+                    <h4 class="item-price">$45.50</h4>
+                    <input type="number" class="quantity-box" value="1" min="1" max="10">
+                </div>
+                <div class="add-cart-btn"><span>Add to Cart</span></div>
             </div>
+            
             <div class="item">
-                <img src="/images/sunglasses7.jpg" alt="">
-                <h4>Price: $100</h4>
+                <img src="https://i.imgur.com/AM2Fghb.jpg" class="imgd" alt="">
+                <div class="price-box">
+                    <h4 class="item-name">Black</h4>
+                    <h4 class="item-price">$48.00</h4>
+                    <input type="number" class="quantity-box" value="1" min="1" max="10"> 
+                </div>
+                <div class="add-cart-btn"><span>Add to Cart</span></div>
             </div>
+
             <div class="item">
-                <img src="/images/sunglasses3.jpg" alt="">
-                <h4>Price: $50</h4>
+                <img src="https://i.imgur.com/AVhAMzS.jpg" class="imgd" alt="">
+                <div class="price-box">
+                    <h4 class="item-name">Horizon</h4>
+                    <h4 class="item-price">$49.99</h4>
+                    <input type="number" class="quantity-box" value="1" min="1" max="10">
+                </div>
+                <div class="add-cart-btn"><span>Add to Cart</span></div>
             </div>
+            
             <div class="item">
-                <img src="/images/sunglasses4.jpg" alt="">
-                <h4>Price: $75</h4>
+                <img src="https://i.imgur.com/pMtNVeV.jpg" class="imgd" alt="">
+                <div class="price-box">
+                    <h4 class="item-name">City</h4>
+                    <h4 class="item-price">$75.00</h4>
+                    <input type="number" class="quantity-box" value="1" min="1" max="10">
+                </div>
+                <div class="add-cart-btn"><span>Add to Cart</span></div>
             </div>
         </div>
 
+        <div id="b-container">
+
+        </div>
         <!-- Cart 54:00 on video JavaScript Projects - Shopping Cart -->
-    
+        <!-------------------  Cart ----------------------->
+        <div id="cart-overlay">
+            <div class="cart">
+                <span class="close-cart">
+                    <i class="fas fa-close"></i>
+                </span>
+                <h2>My Cart</h2>
+                <div class="cart-content">
+                    <div class="cart-head">
+                        <div></div>
+                        <h3>Product</h3>
+                        <h3>Quantity</h3>
+                        <h3>Price</h3>
+                    </div>
+                    <div id="cart-item-list"></div>
+                </div>
+                <div class="cart-footer">
+                    <h3>Total: $<span class="cart-total" id="total-cost">0.00</span></h3>
+                    <span><button id="clear-cart" class="banner-btn btn">clear cart</button>
+                    <button class="checkout-btn banner-btn btn">checkout</button></span>
+                </div>
+                
+            </div>
+        </div>
     </main>
 
     <footer></footer>
+    <script src="shop.js"></script>
     
 </body>
 </html>

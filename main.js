@@ -41,8 +41,6 @@
      return false;
  }
 
- function getTotalCost() {
-     var total = document.getElementById('total').innerText;
-     
 
- }
+
+ 

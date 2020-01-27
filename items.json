@@ -1,0 +1,9 @@
+{
+    "storeItems" :[
+        {"name":"Glacier", "price":"100"},
+        {"name":"Black", "price":"75"},
+        {"name":"Sand", "price":"100"},
+        {"name":"Horizon", "price":"50"},
+        {"name":"City", "price":"75"}
+    ]
+}

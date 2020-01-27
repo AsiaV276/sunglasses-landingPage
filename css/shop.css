@@ -1,6 +1,7 @@
 #cart-btn {
     position: relative;
     cursor: pointer;
+    transition: 1s ease;
 }
 
 #num-cart-items {
@@ -10,12 +11,27 @@
     padding: 0 5px;
     background-color: orange;
     border-radius: 5px;
+    color: #ffffff;
+}
+
+#cart-container {
+    float: right;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: cadetblue;
+    padding: 15px;
+    font-weight: bold;
+    /*font-size: large;*/
 }
 
 #cart-container:hover {
     color: darkcyan;
 }
 
+.added-to-cart {
+    color: orange;
+}
 
 #shop-container {
     display: flex;
@@ -25,12 +41,20 @@
 }
 
 #a-container {
-    background: url(/images/sunglassesbkg.jpg) no-repeat fixed;
-    background-size: cover;
-    background-position: 80%;
-    width: 100%;
+    display: block;
+    background: url(https://i.imgur.com/rel38rl.jpg) fixed;
+    object-fit: contain;
+    background-position: 50% 50%;
+    width: 100vw;
+    height: auto;
     padding-bottom: 160px;
-    margin: auto;
+    
+}
+
+#a-container h1 {
+    font-family: acme;
+    text-align: center;
+    font-size: 40px;
 }
 
 .mw-container {
@@ -42,49 +66,408 @@
     justify-content: center;
 }
 
+.mw-container a {
+    text-decoration: none;
+}
+
 .mw-box {
     background-color: rgba(193, 227, 241, 0.5);
     border: orange 5px solid;
     border-radius: 5px;
-    text-decoration: none;
+    height: 200px;
 }
 
-.mw-box h1 {
+.mw-title {
     color: white;
-    align-self: center;
 }
 
-.mw-box h1:hover {
-    color: orange;
+.mw-box:hover {
+    background-color: rgba(137, 155, 163, 0.5);
 }
+
+/* End of a-container */
+
+
 
 .item-container {
     padding-top: 100px;
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 15px;
-    width: 100%;
+    grid-template-columns: auto auto;
+    grid-gap: 55px;
+    grid-column-gap: 3vw;
+    width: 100vw;
+    padding-left: 40px;
+    justify-content: center;
+    
+}
+
+@media screen and (min-width: 768px) {
+    .item-container {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .item-container {
+        grid-column-gap: 5%;
+    }
 }
 
 .item {
-    border: black 3px solid;
+    /*border: black 2px solid;
+    border-radius: 5px;*/
+    display: grid;
+    grid-template-columns: 200px 125px;
+    position: relative;
 }
 
-.item img{
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+.item h3 {
+     color:black;
 }
 
-.add-cart-btn {
-    border: none;
-    padding: 10px;
-    background-color: orange;
-    color: black;
+.item-name {
     font-weight: bold;
 }
 
-.add-cart-btn:hover {
-    background-color: darkorange;
+.item-price {
+    font-weight: lighter;
+}
+
+.img-container {
+    position: relative;
+    background-color: black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.imgd {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    opacity: 1;
+    transition: 1s ease;
+    /*backface-visibility: hidden;*/
+}
+
+.imgd:hover {
+    opacity: 0.5;
+}
+
+.price-box {
+    background-color: #ffffff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: left;
+}
+
+.add-cart-btn {
+    opacity: 1;
+    position: absolute;
+    width: 110px;
+    height: 20px;
+    bottom: 10px;
+    right: 50px;
+    border: none;
+    padding: 5px;
+    background-color: rgba(255, 165, 0, 0.85);
+    color: black;
+    font-weight: bold;
+    z-index: 3;
     cursor: pointer;
+}
+
+/*.add-cart-btn:hover {
+    background-color: rgba(255, 140, 0,0.85);
+    cursor: pointer;
+    opacity: 1;
+}*/
+
+.add-cart-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.add-cart-btn span::after {
+    font-family: 'FontAwesome';
+    font-weight:  900;
+    content: '\f07a'; /*f290 f07a 00bb*/
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.add-cart-btn:hover span {
+    padding-right: 20px;
+}
+
+.add-cart-btn:hover span::after {
+    opacity: 1;
+    right: 0;
+}
+
+.add-cart-btn:active {
+    background-color: darkorange;
+}
+/*------------------------------------------------------*/
+
+/* Start b-container */
+
+
+#b-container {
+    width: 100%;
+    height: 300px;
+    /*background: url(https://i.imgur.com/wDoLjmE.jpg) no-repeat fixed;
+    object-fit: contain;
+    background-size: cover;*/
+}
+
+
+
+/* End b-container*/
+
+
+
+
+
+/*------------------------------------------------------*/
+#cart-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(95, 158, 160, 0.5);
+    z-index: 6;
+    visibility: hidden;
+}
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 7;
+    background-color: white;
+    padding: 15px;
+    /*transition-timing-function: ;*/
+    /*transform: translateX(100%);*/
+}
+
+.cart h2 {
+    color: cadetblue;
+}
+
+.showCart {
+    transform: translateX(0);
+}
+
+.transparentBkg {
+    visibility: visible;
+}
+
+.close-cart {
+    font-size: 25px;
+    cursor: pointer;
+    padding: 15px;
+    color: gray;
+}
+
+.close-cart i {
+    float: left;
+    padding-left: 50px;
+}
+
+.close-cart:hover {
+    color: black;
+}
+
+.cart h2 {
+    text-transform: capitalize;
+    text-align: center;
+    /*letter-spacing: var(--mainSpacing);*/
+    margin-bottom: 25px;
+}
+
+@media screen and (min-width: 768px) {
+    .cart {
+        width: 30vw;
+        min-width: 450px;
+    }
+
+    .close-cart {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .close-cart i {
+        float: none;
+        padding-left: 0px;
+    }
+}
+
+.cart-head {
+    display: grid;
+    grid-template-columns: auto 2fr auto auto;
+    grid-gap: 25px;
+    align-items: left;
+    color: lightgray;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.cart-head div {
+    width: 150px;
+}
+
+.cart-head h3 {
+    justify-self: center;
+    align-self: end;
+}
+
+
+
+/* Cart Items */
+.cart-item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto auto;
+    grid-column-gap: 25px;
+    margin: 0;
+    padding: 20px;
+    border-bottom: solid gray 1px;
+}
+
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    border-left: 15px white solid;
+    border-bottom: 15px white solid;
+}
+
+.cart-item h5 {
+    justify-self: center;
+}
+
+.cart-item h4 {
+    font-size: medium;
+    text-transform: capitalize;
+}
+
+.cart-item h5 {
+    font-size: medium;
+    margin: 10px;
+}
+
+.item-quantity {
+    text-align: center;
+}
+
+#d-sign {
+    font-weight: normal;
+    justify-self: end;
+}
+
+.delete-item {
+    color: gray;
+    cursor: pointer;
+    margin: 0;
+    align-self: center;
+}
+
+.delete-item:hover {
+    color: darkorange;
+}
+
+.quantity-box {
+    width: 40px;
+    font-size: medium;
+}
+
+/*  End of Cart Items */
+
+.cart-footer {
+    display: grid;
+    grid-template-rows: auto auto;
+    padding-bottom: 50px;
+}
+
+.cart-footer span {
+    padding-left: 25px;
+    padding-right: 15px;
+}
+
+#total-cost {
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.cart-footer h3 {
+    justify-self: right;
+    padding-right: 20px;
+    float: right;
+}
+
+.banner-btn {
+    width: 100px;
+    justify-self: center;
+}
+
+#clear-cart {
+    cursor: pointer;
+    font-size: medium;
+    background-color: transparent;
+    border: lightgray 1px solid;
+    color: lightgray;
+    border-radius: 2px;
+    padding: 7px 15px;
+    height: 100%;
+    float: left;
+    margin-left: 30px;
+}
+
+#clear-cart:hover {
+    border-color: orange;
+    color: orange;
+}
+
+#clear-cart:active {
+    border: orange 3px solid;
+    color: orange;
+    padding: 5px 12px;
+}
+
+.checkout-btn {
+    cursor: pointer;
+    font-size: large;
+    background-color: transparent;
+    border: gray 2px solid;
+    color: gray;
+    border-radius: 2px;
+    padding: 5px 15px;
+    float: right;
+}
+
+.checkout-btn:hover {
+    border-color: orange;
+    color: orange;
+}
+
+.checkout-btn:active {
+    border-color: cadetblue;
+    color: cadetblue;
+}
+
+.btn:focus {
+    outline: none;
 }
