@@ -1,4 +1,3 @@
-
 /* ------------------------------------------------------------------ */
 // Open and Close the cart
 var cartBtn = document.getElementById('cart-container');
@@ -15,7 +14,7 @@ closeBtn.onclick = function() {
     cartOverlay.style.visibility = 'hidden';
 }
 
-window.onclick = function(e) {
+cartOverlay.onclick = function(e) {
     if(e.target == cart) {
         cartOverlay.style.visibility = 'hidden';
     }
@@ -26,12 +25,11 @@ window.onclick = function(e) {
 /* ------------------------------------------------------------------ */
 // Item Class
 class Item {
-    constructor(image, name, price, quantity, id) {
+    constructor(image, name, price, quantity) {
         this.image = image;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        this.id = id;
     }
 }
 
@@ -48,45 +46,61 @@ class UI {
 
    static addToCart(item) {
        const list = document.getElementById('cart-item-list');
+       var namesList = list.getElementsByClassName('cart-item-name');
+       
+       //checks if item is already in cart
+        for (var i = 0; i < namesList.length; i++) {
+            if (namesList[i].textContent == item.name) {
+                
+                alert('This item is already in your cart.')
+                return //return stops the execution of the following of the code, does not add item to UI cart
+            }
+        }
        const row = document.createElement('div');
        row.classList.add('cart-item');
        row.innerHTML = `
             <img src="${item.image}">
-            <h5>${item.name}</h5>
-            <h5>${item.quantity}</h5>
-            <h5 id="d-sign">$<span class="cart-item-price">${item.price}</span></h5>
+            <h5 class="cart-item-name">${item.name}</h5>
+            <input type="number" class="cart-item-quantity" value="${item.quantity}" min="1" max="10">
+            <h5 class="cart-item-price">$ ${item.price}</h5>
             <span class="delete-item">delete</span>
        `
        
        list.prepend(row);
+
+       UI.getTotalPrice();
     
    }
 
-   static getTotalPrice(item) {
-        const cartItems = Store.getItems();
-        const total = [];
-        
-        var itemPrice = parseFloat(item.price);
-
-        total.push(itemPrice);
-        
-        cartItems.forEach(function(item) {
-            var numPrice = item.price; //removes the $
-            total.push(parseFloat(numPrice));
-        });
-
-        const totalPrice = total.reduce(function(total, item) {
-            total += item;
-            return total;
-        },0);
-
-        //console.log(totalPrice);
-        
-
-        //document.getElementById('total-cost').textContent = totalPrice;
-        document.getElementById('num-cart-items').textContent = total.length; 
-        return totalPrice;
+   static quantityChanged(event) {
+       var input = event.target;
+       if (isNaN(input.value) || input.value <= 0) {
+           input.value = 1;
+       }
+       UI.getTotalPrice();
+       console.log('Quantity Changed!');
+       
    }
+
+   static getTotalPrice() {
+       var cartItems = document.getElementById('cart-item-list');
+       var items = cartItems.getElementsByClassName('cart-item');
+       
+       var total = 0;
+       for (var i = 0; i < items.length; i++) {
+           var item = items[i];
+           var priceElement = item.querySelectorAll('.cart-item-price')[0];
+           var quantityElement = item.getElementsByClassName('cart-item-quantity')[0];
+           
+           var price = parseFloat(priceElement.textContent.replace('$ ', ''));
+           var quantity = quantityElement.value;
+          
+           console.log(price * quantity);
+           total = total + (price * quantity);
+       }
+       console.log(total);
+       document.getElementById('total-cost').textContent = total.toFixed(2);
+      }
 
    static deleteItem(del) {
        if(del.classList.contains('delete-item')) {
@@ -108,8 +122,6 @@ class UI {
    
            console.log(totalPrice);
            
-
-
            //subtracts price of deleted item from total cost
            let numPrice = parseFloat(del.previousElementSibling.textContent.slice(1)).toFixed(2); //selects the price of the deleted item, converted to float, removes $
         
@@ -142,8 +154,8 @@ class UI {
         }
         console.log(listItems.length);
         
-        console.log(el.parentElement.previousElementSibling.children[0].innerHTML);
-        document.getElementById('total-cost').innerHTML = 0.00; // resets total cost to 0
+        console.log(el.parentElement.previousElementSibling.children[0].innerText);
+        document.getElementById('total-cost').innerText = parseFloat(0.00).toFixed(2); // resets total cost to 0
         document.getElementById('num-cart-items').innerHTML = listItems.length; // resets num cart items to 0
    }
 
@@ -169,21 +181,24 @@ class Store {
                 x += parseFloat(cartItems[i].price);
             }
     
-            document.getElementById('total-cost').textContent = x.toFixed(2);
         }
         return cartItems;
     }
 
     static addItem(cartItem) {
         const cartItems = Store.getItems();
-        let i, x = 0;
-        for (i in cartItems) {
-            x += parseFloat(cartItems[i].price);
+        
+        var namesList = cartItems.map(({name}) => name);
+        
+       //checks if item is already in cart
+        for (var i = 0; i < namesList.length; i++) {
+           
+            if (namesList[i] == cartItem.name) {
+                return //return stops the execution of the following of the code, does not add item to UI cart
+            }
         }
         
         cartItems.push(cartItem);
-        //document.getElementById('total-cost').textContent = x.toFixed(2);
-        
 
         document.getElementById('num-cart-items').textContent = cartItems.length; 
         
@@ -196,10 +211,8 @@ class Store {
         if(del.classList.contains('delete-item')) {
             const cartItems = Store.getItems();
 
-            cartItems.forEach(function(cartItem, index) {
-                //console.log(index);
-                //console.log(cartItem.name);
-                if(cartItem.name === name) {
+            cartItems.forEach(function(cartItem, index) { //(cartItem, index)
+                if(cartItem.name === name) {        //(cartItem.name === name)
                     cartItems.splice(index, 1);
                 }
                 
@@ -225,11 +238,78 @@ class Store {
 }
 
 
-// Event: Display cart items
-document.addEventListener('DOMContentLoaded', UI.displayCart);
+
+//When DOM is loaded
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+    
+} 
+else {
+    ready();
+    
+}
+
+function ready() {
+
+    //Display cart items
+    UI.displayCart();
+
+    const addCartBtn = document.querySelectorAll('.add-cart-btn'); //all of the add cart buttons
+    
+    addCartBtn.forEach(function(btn) {  // loops through every add cart button
+        btn.addEventListener('click', function(event) { // using event parameter to traverse the DOM
+            var image = event.target.parentElement.parentElement.parentElement.children[0].src;
+            var name = event.target.parentElement.parentElement.children[0].textContent;
+            var itemPrice = parseFloat(event.target.parentElement.parentElement.children[1].textContent.slice(1)).toFixed(2);
+            var quantity = 1; /* event.target.parentElement.parentElement.children[1].children[2].value; */
+            var price = (itemPrice * quantity).toFixed(2);
+            
+            const item = new Item(image, name, price, quantity);
+            
+            UI.addToCart(item);
+            Store.addItem(item);
+
+            //Cart CSS effect
+            var addItemImg = document.getElementById('cart-btn');
+            addItemImg.classList.add('added-to-cart');
+
+            setTimeout(removeAdded, 1500);
+            
+            function removeAdded() {
+                addItemImg.classList.remove('added-to-cart');
+            }
+       }) // targets the specific button
+    })
+
+
+    var quantityInputs = document.getElementsByClassName('cart-item-quantity');
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i];
+        input.addEventListener('change', UI.quantityChanged);
+    }
+
+
+    // Event: Delete Item from UI cart list
+    document.getElementById('cart-item-list').addEventListener('click', function(e) {
+        UI.deleteItem(e.target);
+        Store.deleteItem(e.target, e.target.parentElement.children[1].textContent); //e.target.parentElement.children[1].textContent
+    });
+
+    // Event: Clear Cart items
+    document.getElementById('clear-cart').addEventListener('click', function(e) {
+        UI.clearCart(e.target);
+        Store.clearCart(e.target);
+    })
+
+    
+}
+
+
+
+
 
 // Event: Add an item to the UI cart list
-(function() {
+/*(function() {
     const addCartBtn = document.querySelectorAll('.add-cart-btn'); //all of the add cart buttons
     
     addCartBtn.forEach(function(btn) {  // loops through every add cart button
@@ -267,10 +347,10 @@ document.addEventListener('DOMContentLoaded', UI.displayCart);
             //document.getElementById('logo').style.b = '1px solid black';
         }) // targets the specific button
     })
-})();
+})();*/
 
 // Event: Delete Item from UI cart list
-document.getElementById('cart-item-list').addEventListener('click', function(e) {
+/*document.getElementById('cart-item-list').addEventListener('click', function(e) {
     UI.deleteItem(e.target);
     Store.deleteItem(e.target, e.target.parentElement.children[1].textContent); //e.target.parentElement.children[1].textContent
 });
@@ -279,7 +359,7 @@ document.getElementById('cart-item-list').addEventListener('click', function(e) 
 document.getElementById('clear-cart').addEventListener('click', function(e) {
     UI.clearCart(e.target);
     Store.clearCart(e.target);
-})
+})*/
 
 
 
@@ -347,5 +427,28 @@ function getTotalCost() {
 
 }*/
 
+ /*  const cartItems = Store.getItems();
+        const total = [];
+        
+        var itemPrice = parseFloat(item.price);
+
+        total.push(itemPrice);
+        
+        cartItems.forEach(function(item) {
+            var numPrice = item.price; //removes the $
+            total.push(parseFloat(numPrice));
+        });
+
+        const totalPrice = total.reduce(function(total, item) {
+            total += item;
+            return total;
+        },0);
+
+        //console.log(totalPrice);
+        
+
+        //document.getElementById('total-cost').textContent = totalPrice;
+        document.getElementById('num-cart-items').textContent = total.length; 
+        return totalPrice;*/
 
 
