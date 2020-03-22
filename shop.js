@@ -65,11 +65,8 @@ class UI {
             <h5 class="cart-item-price">$ ${item.price}</h5>
             <span class="delete-item">delete</span>
        `
-       
        list.prepend(row);
-
        UI.getTotalPrice();
-    
    }
 
    static quantityChanged(event) {
@@ -77,7 +74,8 @@ class UI {
        if (isNaN(input.value) || input.value <= 0) {
            input.value = 1;
        }
-       UI.getTotalPrice();
+       UI.getTotalPrice(); //changes the total price with quantity
+       
        console.log('Quantity Changed!');
        
    }
@@ -100,7 +98,7 @@ class UI {
        }
        console.log(total);
        document.getElementById('total-cost').textContent = total.toFixed(2);
-      }
+    }
 
    static deleteItem(del) {
        if(del.classList.contains('delete-item')) {
@@ -123,7 +121,7 @@ class UI {
            console.log(totalPrice);
            
            //subtracts price of deleted item from total cost
-           let numPrice = parseFloat(del.previousElementSibling.textContent.slice(1)).toFixed(2); //selects the price of the deleted item, converted to float, removes $
+           var numPrice = parseFloat(del.previousElementSibling.textContent.slice(1)).toFixed(2); //selects the price of the deleted item, converted to float, removes $
         
             console.log(parseFloat(numPrice));
 
@@ -187,7 +185,6 @@ class Store {
 
     static addItem(cartItem) {
         const cartItems = Store.getItems();
-        
         var namesList = cartItems.map(({name}) => name);
         
        //checks if item is already in cart
@@ -199,15 +196,20 @@ class Store {
         }
         
         cartItems.push(cartItem);
-
         document.getElementById('num-cart-items').textContent = cartItems.length; 
-        
         localStorage.setItem('cartItems', JSON.stringify(cartItems)); //reset it to local storage, stringify to add to local storage
-         
     }
 
+    static saveQuantity(event) {
+        var input = event.target;
+        cartItem.quantity = input.value;
+        console.log(cartItem.quantity);
+
+        localStorage.setItem('carItems', JSON)
+    }
+
+
     static deleteItem(del, name) {
-        
         if(del.classList.contains('delete-item')) {
             const cartItems = Store.getItems();
 
@@ -215,14 +217,10 @@ class Store {
                 if(cartItem.name === name) {        //(cartItem.name === name)
                     cartItems.splice(index, 1);
                 }
-                
             });
 
-            
-        
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         }
-        
     }
 
     static clearCart() {
@@ -268,6 +266,7 @@ function ready() {
             
             UI.addToCart(item);
             Store.addItem(item);
+            Store.saveQuantity(item);
 
             //Cart CSS effect
             var addItemImg = document.getElementById('cart-btn');
@@ -286,6 +285,7 @@ function ready() {
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i];
         input.addEventListener('change', UI.quantityChanged);
+        input.addEventListener('change', Store.saveQuantity);
     }
 
 
@@ -306,149 +306,5 @@ function ready() {
 
 
 
-
-
-// Event: Add an item to the UI cart list
-/*(function() {
-    const addCartBtn = document.querySelectorAll('.add-cart-btn'); //all of the add cart buttons
-    
-    addCartBtn.forEach(function(btn) {  // loops through every add cart button
-        btn.addEventListener('click', function(event) { // using event parameter to traverse the DOM
-            var image = event.target.parentElement.parentElement.children[0].src;
-            var name = event.target.parentElement.parentElement.children[1].children[0].textContent;
-            var itemPrice = parseFloat(event.target.parentElement.parentElement.children[1].children[1].textContent.slice(1)).toFixed(2);
-            var quantity = event.target.parentElement.parentElement.children[1].children[2].value;
-            var price = (itemPrice * quantity).toFixed(2);
-            
-            const item = new Item(image, name, price, quantity);
-            
-            UI.addToCart(item);
-
-            var totalPrice = UI.getTotalPrice(item);
-            console.log(totalPrice);
-            document.getElementById('total-cost').textContent = totalPrice.toString();
-            console.log(document.getElementById('total-cost').textContent);
-            
-
-            Store.addItem(item);
-        
-
-            //Cart CSS effect
-            var addItemImg = document.getElementById('cart-btn');
-            addItemImg.classList.add('added-to-cart');
-
-            setTimeout(removeAdded, 1500);
-            
-            function removeAdded() {
-                addItemImg.classList.remove('added-to-cart');
-            }
-            //event.target.parentElement.parentElement.children[0].children[0];
-
-            //document.getElementById('logo').style.b = '1px solid black';
-        }) // targets the specific button
-    })
-})();*/
-
-// Event: Delete Item from UI cart list
-/*document.getElementById('cart-item-list').addEventListener('click', function(e) {
-    UI.deleteItem(e.target);
-    Store.deleteItem(e.target, e.target.parentElement.children[1].textContent); //e.target.parentElement.children[1].textContent
-});
-
-// Event: Clear Cart items
-document.getElementById('clear-cart').addEventListener('click', function(e) {
-    UI.clearCart(e.target);
-    Store.clearCart(e.target);
-})*/
-
-
-
-// Event: Increase quantity
-/*document.getElementById('cart-item-list').addEventListener('click', function(e) {
-   
-});*/
-
-/*(function() {
-    const up = document.querySelectorAll('.up'); //all of the increase quantity buttons
-
-    up.forEach(function(btn) {
-        btn.addEventListener('click', function(event) {
-            var quantity = parseInt(event.target.nextElementSibling.textContent);
-            
-            console.log("plus one");
-            
-
-        })
-    })
-})();*/
-
-
-/* ------------------------------------------------------------------ */
-
-
-
-
-
-
-
-//var up = document.querySelectorAll('.up');
-//var down = document.querySelectorAll('.down');
-
-
-
-// keep counter from going under 1
-
-// Adjust the Quantity and total cost
- /*   const up = document.querySelectorAll('.up');
-    const down = document.querySelectorAll('.down');
-
-    getTotalCost();
-
-up.onclick = function() {
-    var x = document.querySelectorAll('.item-quantity').innerHTML;
-    x++;
-    document.querySelectorAll('.item-quantity').innerHTML = x;
-
-    getTotalCost();
-}
-
-down.onclick = function() {
-    var x = document.querySelector('.item-quantity').innerHTML;
-    x--;
-    document.querySelector('.item-quantity').innerHTML = x;
-
-    getTotalCost();
-}
-
-function getTotalCost() {
-    let cost = parseFloat(document.querySelector('.item-price').innerHTML);
-    let itemQuantity = parseFloat(document.querySelector('.item-quantity').innerHTML);
-    document.getElementById('total-cost').innerHTML = itemQuantity * cost;
-
-}*/
-
- /*  const cartItems = Store.getItems();
-        const total = [];
-        
-        var itemPrice = parseFloat(item.price);
-
-        total.push(itemPrice);
-        
-        cartItems.forEach(function(item) {
-            var numPrice = item.price; //removes the $
-            total.push(parseFloat(numPrice));
-        });
-
-        const totalPrice = total.reduce(function(total, item) {
-            total += item;
-            return total;
-        },0);
-
-        //console.log(totalPrice);
-        
-
-        //document.getElementById('total-cost').textContent = totalPrice;
-        document.getElementById('num-cart-items').textContent = total.length; 
-        return totalPrice;*/
 
 

@@ -24,13 +24,26 @@ header {
     text-align: center;
     text-decoration: none;
     color: cadetblue;
-    padding: 15px;
+    margin: 20px;
+    padding-bottom: 3px;
     font-weight: bold;
-    font-size: large;
+    font-size: medium;
 }
 
 .topnav a:hover {
     color: orange;
+}
+
+.shop-link {
+    font-size: larger !important;
+    border: 1px cadetblue solid !important;
+    margin: 10px !important;
+    padding: 5px 10px !important;
+    border-radius: 2px;
+}
+
+.shop-link:hover {
+    border: 1px orange solid !important;
 }
 
 .links:hover {
