@@ -12,57 +12,70 @@ header {
     overflow: hidden;
     height: auto;
     background: #eeeeee; /*rgba(238, 238, 238, 0.0)*/
+    background-color: white;
     position: fixed;
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    height: 50px;
     top: 0;
     z-index: 5;
 }
 
-.topnav a{
+/* Sale Banner */
+#sale-display {
+    display: flex;
+    flex-grow: 0.75;
+    flex-direction: row;
+    background-color: yellow;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    margin: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sale-text {
+    flex-grow: 5;
+}
+/*End*/
+
+.links,
+.drop-links,
+#menu-icon {
     float: right;
     display: block;
     text-align: center;
     text-decoration: none;
     color: cadetblue;
-    margin: 20px;
-    padding-bottom: 3px;
-    font-weight: bold;
     font-size: medium;
+    align-self: center;
 }
 
-.topnav a:hover {
+.links:hover,
+.drop-links:hover,
+#menu-icon:hover {
     color: orange;
-}
-
-.shop-link {
-    font-size: larger !important;
-    border: 1px cadetblue solid !important;
-    margin: 10px !important;
-    padding: 5px 10px !important;
-    border-radius: 2px;
-}
-
-.shop-link:hover {
-    border: 1px orange solid !important;
 }
 
 .links:hover {
     border-bottom: 1px solid orange;
 }
 
-.topnav .icon {
-    display: none;
+.shop-link {
+    font-size: larger;
+    border: 1px cadetblue solid !important;
+    margin: 10px !important;
+    padding: 5px 10px !important;
+    border-radius: 2px;
+    font-weight: bold;
 }
 
+/* Sunglasses Logo */
 #logo-container {
-    display: block;
     float: left;
-}
-
-#logo-container h1 {
-    align-self: center;
-    font-family: aclonica;
-    height: 100%;
 }
 
 #logo {
@@ -70,33 +83,131 @@ header {
     height: auto;
 }
 
-main {
-    padding-top: 55px;
-    max-width: 800px;
+
+/* Both Navbar Icons */
+#menu-icon,
+#logo-container {
     display: block;
-    text-align: center;
+    margin: 10px;
+}
+
+#menu-icon {
+    display: none;
+}
+
+/* Top Navbar Links */
+#topnav-links {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    float: right;
+}
+
+
+
+@media only screen and (max-width: 785px) {
+    .sale-text-outer1,
+    .sale-text-outer2 {
+        font-weight: bold;
+    }
+
+    .sale-text {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #sale-display {
+        font-size: small;
+    }
+
+    .links {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .shop-link {
+        font-size: medium;
+    }
 }
 
 @media only screen and (max-width: 650px) {
+
     #logo-container h1 {
         display: none;
     }
 
     .topnav {
         position: fixed;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .topnav a {
         display: none;
     }
 
-    .topnav a.icon {
-        float: right;
+    #menu-icon {
         display: block;
     }
 
+    #sale-display {
+        flex-grow: 5;
+        background-color: yellow;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+    }
+
+    #sale-display p {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .sale-text {
+        flex-grow: 5;
+    }
+
+    #topnav-links {
+        display: none;
+    }
+
+    @media only screen and (max-width: 435px) {
+        .sale-text {
+            font-size: 13px;
+        }
+    }
+
+    @media only screen and (max-width: 410px) {
+        #sale-display {
+            padding: 0;
+            margin: 0;
+        }
+
+        .sale-text-outer2 {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 289px) {
+        .sale-text {
+            display: none;
+        }
+
+        .sale-display {
+            justify-content: center;
+            text-align: center;
+        }
+        .sale-text-outer2 {
+            display: block;
+        }
+    }
+
     #menu {
-        padding-top: 67px;
+        margin-top: 50px;
         background-color: rgb(221, 221, 221);
         width: 100%;
         position: fixed;
@@ -128,12 +239,103 @@ main {
     }
 }
 
+main {
+    padding-top: 55px;
+    max-width: 800px;
+    display: block;
+    text-align: center;
+}
+
 #main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
 }
+
+#sale-banner {
+    background-color: burlywood; /* orangered */
+    font-size: larger;
+    margin-top: 15px;/* 50px */
+    width: 100vw;
+}
+
+#sale-banner p {
+    display: inline-block;
+}
+
+.sign1 {
+    padding-right: 350px;
+}
+
+/*#sale-scroll {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 41px;
+    background-color: burlywood;
+    width: 100vw;
+}
+
+#sale-scroll p {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting Position */
+    /*-moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply Animation 
+    -moz-animation: scroll-left 15s linear infinite;
+    -webkit-animation: scroll-left 15s linear infinite;
+    animation: scroll-left 15s linear infinite;
+}*/
+
+/*.sign2 {
+    position: relative;
+    display: block;
+    float: right;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting Position */
+    /*-moz-transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
+    /* Apply Animation 
+    -moz-animation: scroll-left 15s linear infinite;
+    -webkit-animation: scroll-left 15s linear infinite;
+    animation: scroll-left 15s linear infinite;
+}*/
+
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scroll-left {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scroll-left {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Browser bug fix */
+ -webkit-transform: translateX(100%); /* Browser bug fix */
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Browser bug fix */
+ -webkit-transform: translateX(-100%); /* Browser bug fix */
+ transform: translateX(-100%); 
+ }
+}
+*/
 
 #title {
     font-family: acme;
