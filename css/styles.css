@@ -26,8 +26,7 @@ header {
     display: flex;
     flex-grow: 0.75;
     flex-direction: row;
-    background-color: yellow;
-    text-align: center;
+    
     text-decoration: none;
     color: black;
     align-items: center;
@@ -37,8 +36,12 @@ header {
 }
 
 .sale-text {
-    flex-grow: 5;
+    min-width: 150px;
+    margin: auto;
+    text-align: center;
+    font-size: small;
 }
+
 /*End*/
 
 .links,
@@ -160,10 +163,6 @@ header {
 
     #sale-display {
         flex-grow: 5;
-        background-color: yellow;
-        display: flex;
-        flex-direction: row;
-        cursor: pointer;
     }
 
     #sale-display p {
@@ -519,6 +518,7 @@ video {
     max-width: 100%;
     height: auto;
     z-index: 0;
+    margin: auto;
 }
 
 @media only screen and (max-width: 650px) {

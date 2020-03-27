@@ -1,3 +1,27 @@
+// Sale Banner Slide
+ var slideIndex = 0;
+ slider();
+
+ function slider() {
+    var i;
+    var x = document.getElementsByClassName('sale-text');
+
+    for(i = 0; i < x.length; i++) {
+        x[i].style.display = 'none';
+    }
+
+    slideIndex++;
+    if (slideIndex > x.length) {
+        slideIndex = 1
+    } 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(slider, 4000); 
+ }
+
+
+ 
+ 
+ 
  // Get modal element
  var modal = document.getElementById('welcome-modal');
  // Get open modal button
