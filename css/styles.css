@@ -26,7 +26,6 @@ header {
     display: flex;
     flex-grow: 0.75;
     flex-direction: row;
-    
     text-decoration: none;
     color: black;
     align-items: center;
@@ -92,10 +91,10 @@ header {
 
 
 /* Both Navbar Icons */
-#menu-icon,
+
 #logo-container {
     display: block;
-    margin: 10px;
+    margin: 3px;
 }
 
 #menu-icon {
@@ -142,10 +141,11 @@ header {
 
 @media only screen and (max-width: 650px) {
 
-    #logo-container h1 {
-        display: none;
+    #menu-icon,
+    #logo-container {
+        display: block;
+        margin: 10px;
     }
-
     .topnav {
         position: fixed;
         display: flex;
