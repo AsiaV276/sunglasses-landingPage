@@ -54,6 +54,10 @@ header {
     align-self: center;
 }
 
+.links {
+    padding: 10px;
+}
+
 .links:hover,
 .drop-links:hover,
 #menu-icon:hover {
@@ -61,7 +65,8 @@ header {
 }
 
 .links:hover {
-    border-bottom: 1.5px solid orange;
+    border: 0.5px solid orange;
+    border-radius: 2px;
     font-weight: bold;
 }
 
@@ -139,6 +144,11 @@ header {
 }
 
 @media only screen and (max-width: 650px) {
+
+    #col-1,
+    #col-2 {
+        display: none;
+    }
 
     #menu-icon,
     #logo-container {
@@ -243,16 +253,54 @@ header {
 
 main {
     padding-top: 60px;
-    max-width: 800px;
-    display: block;
     text-align: center;
+}
+
+#main-flex-cont {
+    display: flex;
+    flex-direction: row;
+}
+
+#col-1 {
+    margin-right: auto;
+    background-image: url('/images/teal-wood.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-color: lightgray;*/
+    height: auto;
+    width: 275px;
+}
+
+/*.col-1-img {
+    margin-top: 700px;
+}*/
+
+#col-2 {
+    margin-left: auto;
+    background-image: url('/images/teal-wood.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /*background-color: lightgray;*/
+    height: auto;
+    width: 275px;
+    }
+
+/*#col-2 img {
+    margin-top: 225px;
+
+}*/
+
+.side-img {
+    width: 250px;
+    height: auto;
 }
 
 #main-container {
     /*display: flex;
     flex-direction: column;
     align-items: center;*/
-    margin: auto;
+    max-width: 800px;
 }
 
 #sale-banner {

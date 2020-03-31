@@ -527,7 +527,7 @@ main {
     padding: 5px 12px;
 }
 
-.checkout-btn {
+#checkout-btn {
     cursor: pointer;
     font-size: large;
     background-color: transparent;
@@ -538,12 +538,12 @@ main {
     float: right;
 }
 
-.checkout-btn:hover {
+#checkout-btn:hover {
     border-color: orange;
     color: orange;
 }
 
-.checkout-btn:active {
+#checkout-btn:active {
     border-color: cadetblue;
     color: cadetblue;
 }

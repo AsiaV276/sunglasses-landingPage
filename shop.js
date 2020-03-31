@@ -157,6 +157,20 @@ class UI {
         document.getElementById('num-cart-items').innerHTML = listItems.length; // resets num cart items to 0
    }
 
+   static checkout(el) {
+    let listItems = document.getElementsByClassName('cart-item'); //all cart items that were added
+
+    //loops through all cart items and removes them one by one, they will all be at index 0
+    while(listItems[0]) {
+        listItems[0].parentNode.removeChild(listItems[0]);
+    }
+    console.log(listItems.length);
+    
+    console.log(el.parentElement.previousElementSibling.children[0].innerText);
+    document.getElementById('total-cost').innerText = parseFloat(0.00).toFixed(2); // resets total cost to 0
+    document.getElementById('num-cart-items').innerHTML = listItems.length; // resets num cart items to 0
+}
+
    /*static showMessage() {
         //message.style.opacity = 
         document.querySelectorAll('.added').style.opacity = '0.5';
@@ -233,6 +247,17 @@ class Store {
         localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
         
     }
+
+    static checkout() {
+        const cartItems = Store.getItems();
+       
+        cartItems.length = 0; //sets the cartItems array to empty
+        //cartItems.splice(0, cartItems.length) .... this also sets the array to empty
+        
+        
+        localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
+        
+    }
 }
 
 
@@ -299,6 +324,12 @@ function ready() {
     document.getElementById('clear-cart').addEventListener('click', function(e) {
         UI.clearCart(e.target);
         Store.clearCart(e.target);
+    })
+
+    // Event: Checkout
+    document.getElementById('checkout-btn').addEventListener('click', function(e) {
+        UI.checkout(e.target);
+        Store.checkout(e.target);
     })
 
     
