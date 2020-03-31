@@ -2,6 +2,11 @@ main {
     max-width: 95%;
 }
 
+#shop-header-space {
+    display: flex;
+    flex-grow: 2;
+}
+
 #cart-btn {
     position: relative;
     cursor: pointer;
@@ -19,14 +24,12 @@ main {
 }
 
 #cart-container {
-    float: right;
     display: block;
     text-align: center;
     text-decoration: none;
     color: cadetblue;
-    padding: 15px;
+    margin: 15px;
     font-weight: bold;
-    /*font-size: large;*/
 }
 
 #cart-container:hover {
