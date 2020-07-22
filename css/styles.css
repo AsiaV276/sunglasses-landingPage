@@ -276,15 +276,9 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /*background-color: lightgray;*/
     height: auto;
     width: 275px;
-    }
-
-/*#col-2 img {
-    margin-top: 225px;
-
-}*/
+}
 
 .side-img {
     width: 250px;

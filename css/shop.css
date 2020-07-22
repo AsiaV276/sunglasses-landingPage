@@ -53,13 +53,12 @@ main {
     object-fit: contain;
     background-position: 50% 50%;
     width: 100%;
-    height: 150px;
 }
 
 #a-container h1 {
     font-family: acme;
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .mw-container {
