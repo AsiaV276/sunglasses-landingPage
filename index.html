@@ -65,7 +65,7 @@
         
     </header>
 
-    <main id="main-flex-cont">
+    <main>
         <!--<marquee id="sale-banner" behavior="scroll" direction="left">
             <p class="sign1">Buy One Get One 50% Off!</p> 
             <p>Buy One Get One 50% Off!</p>
@@ -74,122 +74,127 @@
             <p>Buy One Get One 50% Off! &emsp;&emsp;&emsp;&emsp;</p> 
             <p class="sign2">Buy One Get One 50% Off!</p>
         </div>-->
-        <div id="col-1">
-            <!--<img src="/images/sunglasses6.jpg" class="side-img col-1-img">
-            <h3>Col 1</h3>
-            <button>Explore More</button>-->
-        </div>
+        <!--<div id="loading">
+            <h1>Loading...</h1>
+        </div>-->
 
-        <div id="main-container">
-            <h1 id="title">Original Sunglasses</h1>
-
-            <section id="section-a">
-                <form onsubmit="event.preventDefault(); openModal()" id="email-form" name="start-form"> <!-- action="/shop.html" -->
-                    <div id="name">
-                        <input type="text" name="" id="first" placeholder="First Name"autofocus required>
-                        <input type="text" name="" id="last" placeholder="Last Name" required>
+        <div id="main-flex-cont">
+            <div id="col-1">
+                <!--<img src="/images/teal-wood.jpg" class="col-img">
+                <h3>Col 1</h3>
+                <button>Explore More</button>-->
+            </div>
+    
+            <div id="main-container">
+                <h1 id="title">Original Sunglasses</h1>
+    
+                <section id="section-a">
+                    <form onsubmit="event.preventDefault(); openModal()" id="email-form" name="start-form"> <!-- action="/shop.html" -->
+                        <div id="name">
+                            <input type="text" name="" id="first" placeholder="First Name"autofocus required>
+                            <input type="text" name="" id="last" placeholder="Last Name" required>
+                        </div>
+                        <input type="email" name="" id="email" placeholder="Enter your email address" required><br>
+                        <input type="submit" id="start-btn" value="SIGN UP" >
+                    </form>
+                </section>
+    
+                <div id="welcome-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <h2 id="success-msg">Success!</h2>
+                        <h2>Welcome to Original Sunglasses,</h2>
+                        <h2 id="name-place"></h2>
+                        <a href="/shop.html"><button id="shop-btn">Start Shopping</button></a>
                     </div>
-                    <input type="email" name="" id="email" placeholder="Enter your email address" required><br>
-                    <input type="submit" id="start-btn" value="SIGN UP" >
-                </form>
-            </section>
-
-            <div id="welcome-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn">&times;</span>
-                    <h2 id="success-msg">Success!</h2>
-                    <h2>Welcome to Original Sunglasses,</h2>
-                    <h2 id="name-place"></h2>
-                    <a href="/shop.html"><button id="shop-btn">Start Shopping</button></a>
                 </div>
-            </div>
-
-            <section id="section-b">
-                <table>
-                    <tr>
-                        <td class="icon">
-                            <i class="fas fa-fire fa-3x"></i>
-                        </td>
-                        <td class="text">
-                            <h1>Premium Materials</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut incidunt, dolorem accusantium adipisci pariatur doloribus!</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="icon">
-                            <i class="fas fa-truck fa-3x"></i>
-                        </td>
-                        <td class="text">
-                            <h1>Fast Shipping</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo saepe, itaque eligendi rerum quibusdam ea voluptatum! Optio.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="icon">
-                            <i class="fas fa-battery-full fa-3x"></i>
-                        </td>
-                        <td class="text">
-                            <h1>Quality Assurance</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dignissimos repudiandae inventore vero.</p>
-                        </td>
-                    </tr>
-                </table>
-            </section>
-            <div id="how-works"></div> <!-- 50px spacing and link from nav-->
-
-            <div id="vid-cont">
-                <h1 class="heading">How It Works</h1>
-                <video width="500" height="350" controls></video>
-            </div>
-
-            <div id="price"></div>    <!-- 50px spacing and link from nav-->
-                
-            
-            <h1 class="heading">Pricing</h1>
-
-            <section id="section-c">
-                <div class="box">
-                    <h3 class="top">Option 1</h3>
-                    <div class="select-box">
-                        <h2>$50</h2>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum dolor</p>
-                        <p>Lorem ipsum</p>
-                        <button class="select-btn">SELECT</button>
-                    </div>
+    
+                <section id="section-b">
+                    <table>
+                        <tr>
+                            <td class="icon">
+                                <i class="fas fa-fire fa-3x"></i>
+                            </td>
+                            <td class="text">
+                                <h1>Premium Materials</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut incidunt, dolorem accusantium adipisci pariatur doloribus!</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="icon">
+                                <i class="fas fa-truck fa-3x"></i>
+                            </td>
+                            <td class="text">
+                                <h1>Fast Shipping</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo saepe, itaque eligendi rerum quibusdam ea voluptatum! Optio.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="icon">
+                                <i class="fas fa-battery-full fa-3x"></i>
+                            </td>
+                            <td class="text">
+                                <h1>Quality Assurance</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dignissimos repudiandae inventore vero.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <div id="how-works"></div> <!-- 50px spacing and link from nav-->
+    
+                <div id="vid-cont">
+                    <h1 class="heading">How It Works</h1>
+                    <video width="500" height="350" controls></video>
+                </div>
+    
+                <div id="price"></div>    <!-- 50px spacing and link from nav-->
                     
-                </div>
-                <div class="box">
-                    <h3 class="top">Option 2</h3>
-                    <div class="select-box">
-                        <h2>$75</h2>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum dolor</p>
-                        <p>Lorem ipsum</p>
-                        <button class="select-btn">SELECT</button>
+                
+                <h1 class="heading">Pricing</h1>
+    
+                <section id="section-c">
+                    <div class="box">
+                        <h3 class="top">Option 1</h3>
+                        <div class="select-box">
+                            <h2>$50</h2>
+                            <p>Lorem ipsum</p>
+                            <p>Lorem ipsum</p>
+                            <p>Lorem ipsum dolor</p>
+                            <p>Lorem ipsum</p>
+                            <button class="select-btn">SELECT</button>
+                        </div>
+                        
                     </div>
-                </div>
-                <div class="box">
-                    <h3 class="top">Option 3</h3>
-                    <div class="select-box">
-                        <h2>$100</h2>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum</p>
-                        <p>Lorem ipsum dolor</p>
-                        <p>Lorem ipsum</p>
-                        <button class="select-btn">SELECT</button>
+                    <div class="box">
+                        <h3 class="top">Option 2</h3>
+                        <div class="select-box">
+                            <h2>$75</h2>
+                            <p>Lorem ipsum</p>
+                            <p>Lorem ipsum</p>
+                            <p>Lorem ipsum dolor</p>
+                            <p>Lorem ipsum</p>
+                            <button class="select-btn">SELECT</button>
+                        </div>
                     </div>
-                </div>
-            </section>
+                    <div class="box">
+                        <h3 class="top">Option 3</h3>
+                        <div class="select-box">
+                            <h2>$100</h2>
+                            <p>Lorem ipsum</p>
+                            <p>Lorem ipsum</p>
+                            <p>Lorem ipsum dolor</p>
+                            <p>Lorem ipsum</p>
+                            <button class="select-btn">SELECT</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+    
+            <div id="col-2">
+                <!--<img src="/images/sunglassesbkg.jpg" class="side-img">
+                <h3>Col 2</h3>-->
+            </div>
         </div>
-
-        <div id="col-2">
-            <!--<img src="/images/sunglassesbkg.jpg" class="side-img">
-            <h3>Col 2</h3>-->
-        </div>
-        
     </main>
     <footer id="footer"></footer>
 

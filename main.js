@@ -18,10 +18,10 @@
     setTimeout(slider, 4000); 
  }
 
+ 
 
- 
- 
- 
+
+
  // Get modal element
  var modal = document.getElementById('welcome-modal');
  // Get open modal button
@@ -57,7 +57,7 @@
      }
  }
 
-
+ 
  // All fields reset after the form is submitted
  function resetForm() {
      var frm = document.getElementsByName('start-form')[0];

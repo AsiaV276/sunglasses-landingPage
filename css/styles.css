@@ -266,14 +266,9 @@ main {
     background-image: url('/images/teal-wood.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    /*background-color: lightgray;*/
     height: auto;
     width: 275px;
 }
-
-/*.col-1-img {
-    margin-top: 700px;
-}*/
 
 #col-2 {
     margin-left: auto;
